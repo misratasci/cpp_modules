@@ -6,7 +6,7 @@
 int main() {
 	PhoneBook pb;
 	std::string cmd;
-	std::cout << "Enter command: ";
+	std::cout << "Enter command (ADD, SEARCH or EXIT): ";
 	std::cin >> cmd;
 	while (cmd.compare("EXIT") != 0) {
 		if (cmd.compare("ADD") == 0)

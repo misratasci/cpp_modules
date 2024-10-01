@@ -22,7 +22,13 @@ void PhoneBook::search() {
 	int i;
 	std::cout << "Index of entry: ";
 	std::cin >> i;
-	if (i - 1 < 0 || i - 1 > size) {
+	if (std::cin.fail()) {
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		std::cout << "Index out of bounds" << std::endl;
+		return ;
+	}
+	if (i - 1 < 0 || i - 1 >= this->size) {
 		std::cout << "Index out of bounds" << std::endl;
 		return ;
 	}
