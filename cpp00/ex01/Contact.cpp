@@ -4,17 +4,25 @@
 #include <iomanip>
 #include <string>
 
+std::string Contact::get_input(std::string prompt) {
+	std::string input;
+
+	std::cout << prompt;
+	std::getline(std::cin, input);
+	while (input.empty()) {
+		std::cout << "Fields cannot be empty. Try again." << std::endl;
+		std::cout << prompt;
+		std::getline(std::cin, input);
+	}
+	return (input);
+}
+
 void Contact::get_contact() {
-	std::cout << "First name: ";
-	std::cin >> this->first_name;
-	std::cout << "Last name: ";
-	std::cin >> this->last_name;
-	std::cout << "Nickname: ";
-	std::cin >> this->nickname;
-	std::cout << "Phone number: ";
-	std::cin >> this->phone_num;
-	std::cout << "Darkest secret: ";
-	std::cin >> this->secret;
+	this->first_name = this->get_input("First name: ");
+	this->last_name = this->get_input("Last name: ");
+	this->nickname = this->get_input("Nickname: ");
+	this->phone_num = this->get_input("Phone number: ");
+	this->secret = this->get_input("Darkest secret: ");
 }
 
 void Contact::print(int i) {

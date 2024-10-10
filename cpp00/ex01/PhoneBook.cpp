@@ -1,6 +1,5 @@
 
 #include "PhoneBook.hpp"
-#include <iostream>
 
 PhoneBook::PhoneBook() {
 	this->index = 0;
@@ -22,10 +21,11 @@ void PhoneBook::search() {
 	int i;
 	std::cout << "Index of entry: ";
 	std::cin >> i;
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	if (std::cin.fail()) {
-        std::cin.clear();
+		std::cin.clear();
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-		std::cout << "Index out of bounds" << std::endl;
+		std::cout << "Index invalid" << std::endl;
 		return ;
 	}
 	if (i - 1 < 0 || i - 1 >= this->size) {
