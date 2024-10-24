@@ -1,5 +1,4 @@
 
-
 #include <iostream>
 #include <fstream>
 
@@ -25,5 +24,21 @@ int main(int ac, char *av[]) {
 		return (1);
 	}
 
+	std::string a = av[2];
+	std::string b = av[3];
+	int a_len = a.length();
+	std::string line;
 	
+	while (!std::getline(input_stream, line).fail()) {
+		unsigned int a_ind = line.find(a);
+		while (a_ind < line.length()) {
+			line.erase(a_ind, a_len);
+			line.insert(a_ind, b);
+			a_ind = line.find(a, a_ind + b.length());
+		}
+		output_stream << line << std::endl;
+	}
+
+	input_stream.close();
+	output_stream.close();
 }
