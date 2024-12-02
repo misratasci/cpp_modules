@@ -8,5 +8,5 @@ int main() {
 		std::cout << i << " ";
 		horde[i].announce();
 	}
-	delete horde;
+	delete[] horde;
 }

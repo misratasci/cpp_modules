@@ -11,6 +11,7 @@ class Contact {
 	std::string nickname;
 	std::string phone_num;
 	std::string secret;
+	std::string get_input(std::string prompt);
 
 	public:
 	void get_contact();
