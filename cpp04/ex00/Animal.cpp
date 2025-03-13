@@ -22,6 +22,10 @@ Animal &Animal::operator=(Animal const &src) {
     return *this;
 }
 
+std::string Animal::getType(void) {
+    return this->type;
+}
+
 void Animal::makeSound(void) {
     std::cout << this->type << " makes a default sound" << std::endl;
 }
