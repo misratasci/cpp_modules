@@ -27,8 +27,7 @@ ScavTrap::~ScavTrap() {
 	std::cout << "ScavTrap destructor called" << std::endl;
 }
 
-
-ScavTrap ScavTrap::operator=(ScavTrap const &src) {
+ScavTrap &ScavTrap::operator=(ScavTrap const &src) {
 	std::cout << "ScavTrap copy assignment operator called" << std::endl;
 	this->name = src.name;
 	this->hit_points = src.hit_points;
@@ -38,14 +37,20 @@ ScavTrap ScavTrap::operator=(ScavTrap const &src) {
 	return *this;
 }
 
-
 void ScavTrap::attack(std::string const &target) {
+	if (this->energy_points <= 0) {
+        std::cout << "ScavTrap " << this->name << " does not have enough energy points to attack " << target << "!" << std::endl;
+        return ;
+    }
 	std::cout << "ScavTrap " << this->name << " attacks " << target << ", causing " << this->attack_damage << " points of damage!" << std::endl;
     this->energy_points--;
 }
 
-
 void ScavTrap::guardGate() {
+	if (this->gate_keeper) {
+		std::cout << "ScavTrap " << this->name << " is already in gate keeper mode!" << std::endl;
+		return ;
+	}
 	std::cout << "ScavTrap " << this->name << " is now in gate keeper mode" << std::endl;
 	this->gate_keeper = true;
 }
