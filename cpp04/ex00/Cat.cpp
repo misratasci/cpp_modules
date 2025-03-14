@@ -3,7 +3,7 @@
 
 Cat::Cat() : Animal() {
     std::cout << "Cat default constructor called" << std::endl;
-    this->type = "cat";
+    this->type = "Cat";
     return ;
 }
 
@@ -23,10 +23,6 @@ Cat &Cat::operator=(Cat const &src) {
     return *this;
 }
 
-std::string Cat::getType(void) {
-    return this->type;
-}
-
-void Cat::makeSound(void) {
+void Cat::makeSound(void) const {
     std::cout << this->type << " says 'meow'" << std::endl;
 }
