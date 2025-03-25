@@ -12,10 +12,11 @@ class Bureaucrat {
     public:
         Bureaucrat();
         Bureaucrat(const Bureaucrat &src);
+        Bureaucrat(const std::string name, int grade);
         ~Bureaucrat();
         Bureaucrat &operator=(const Bureaucrat &src);
         const std::string getName() const;
-        const int getGrade() const;
+        int getGrade() const;
         void incrementGrade();
         void decrementGrade();
         class GradeTooHighException: public std::exception {
