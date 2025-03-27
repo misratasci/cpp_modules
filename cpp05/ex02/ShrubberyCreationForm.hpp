@@ -8,9 +8,10 @@ class ShrubberyCreationForm: AForm {
     public:
         ShrubberyCreationForm();
         ShrubberyCreationForm(const ShrubberyCreationForm &src);
-		ShrubberyCreationForm(const std::string name, const int sign_grade, const int exec_grade);
+		ShrubberyCreationForm(const std::string name);
         ~ShrubberyCreationForm();
         ShrubberyCreationForm &operator=(const ShrubberyCreationForm &src);
+        void execute(Bureaucrat const &executor) const;
 };
 
 std::ostream &operator<<(std::ostream &os, ShrubberyCreationForm const &src);

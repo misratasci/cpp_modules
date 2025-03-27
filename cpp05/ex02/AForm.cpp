@@ -43,6 +43,10 @@ int AForm::getExecGrade() const {
     return this->exec_grade;
 }
 
+void AForm::setIsSigned(bool value) {
+    this->is_signed = value;
+}
+
 void AForm::beSigned(const Bureaucrat &b) {
     if (b.getGrade() > this->sign_grade)
         throw GradeTooLowException();
