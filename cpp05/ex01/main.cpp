@@ -1,5 +1,6 @@
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int main() {
 	try {
@@ -35,4 +36,13 @@ int main() {
 	catch (const std::exception &e){
 		std::cerr << "Exception caught: " << e.what() << std::endl;
 	}
+
+	Form f("form1", 50, 25);
+	Bureaucrat def;
+	Bureaucrat high("high", 20);
+	std::cout << f << std::endl;
+	def.signForm(f);
+	std::cout << f << std::endl;
+	high.signForm(f);
+	std::cout << f << std::endl;
 }
