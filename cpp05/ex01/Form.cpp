@@ -1,4 +1,5 @@
-#include "Form.hpp"
+
+# include "Form.hpp"
 
 Form::Form(): name("default"), is_signed(false), sign_grade(150), exec_grade(150) {
     std::cout << "Default constructor for Form " << this->getName() << std::endl;
@@ -30,16 +31,35 @@ const std::string Form::getName() const {
     return this->name;
 }
 
+bool Form::getIsSigned() const {
+    return this->is_signed;
+}
+
+int Form::getSignGrade() const {
+    return this->sign_grade;
+}
+
+int Form::getExecGrade() const {
+    return this->exec_grade;
+}
+
+void Form::beSigned(const Bureaucrat &b) {
+    if (b.getGrade() > this->sign_grade)
+        throw GradeTooLowException();
+    else
+        this->is_signed = true;
+}
+
 const char* Form::GradeTooHighException::what() const throw() {
-    return "Grade cannot be higher than 1!";
+    return "Grade is too high!";
 }
 
 const char* Form::GradeTooLowException::what() const throw() {
-    return "Grade cannot be lower than 150!";
+    return "Grade is too low!";
 }
 
 
 std::ostream &operator<<(std::ostream &os, Form const &src) {
-    os << src.getName() << ", Form grade " ;
+    os << src.getName() << ", form with sign grade " << src.getSignGrade() << " and exec grade " << src.getExecGrade();
     return (os);
 }
