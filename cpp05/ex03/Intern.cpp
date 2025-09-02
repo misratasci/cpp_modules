@@ -29,31 +29,24 @@ AForm *Intern::makePresidentialPardonForm(const std::string target) {
   return new PresidentialPardonForm(target);
 }
 
-FormType getFormType(const std::string &formName) {
-    if (formName == "shrubbery creation")
-        return SHRUBBERY_CREATION;
-    if (formName == "robotomy request")
-        return ROBOTOMY_REQUEST;
-    if (formName == "presidential pardon")
-        return PRESIDENTIAL_PARDON;
-    return INVALID_FORM;
-}
-
 AForm *Intern::makeForm(const std::string formName, const std::string target) {
-    std::cout << "Intern creates " << formName << std::endl;
-    
-    switch (getFormType(formName)) {
-        case SHRUBBERY_CREATION:
-            return new ShrubberyCreationForm(target);
-        case ROBOTOMY_REQUEST:
-            return new RobotomyRequestForm(target);
-        case PRESIDENTIAL_PARDON:
-            return new PresidentialPardonForm(target);
-        default:
-            std::cout << "Intern cannot create " << formName
-                      << " form because it doesn't exist" << std::endl;
-            throw FormNotFoundException();
+  std::string formNames[3] = {"shrubbery creation", "robotomy request",
+                              "presidential pardon"};
+
+  AForm *(Intern::*formCreators[3])(const std::string) = {
+      &Intern::makeShrubberyCreationForm, &Intern::makeRobotomyRequestForm,
+      &Intern::makePresidentialPardonForm};
+
+  for (int i = 0; i < 3; i++) {
+    if (formName == formNames[i]) {
+      std::cout << "Intern creates " << formName << std::endl;
+      return (this->*formCreators[i])(target);
     }
+  }
+
+  std::cout << "Intern cannot create " << formName
+            << " form because it doesn't exist" << std::endl;
+  throw FormNotFoundException();
 }
 
 const char *Intern::FormNotFoundException::what() const throw() {

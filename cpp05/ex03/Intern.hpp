@@ -6,13 +6,6 @@
 #include "ShrubberyCreationForm.hpp"
 #include <iostream>
 
-enum FormType {
-    SHRUBBERY_CREATION = 0,
-    ROBOTOMY_REQUEST = 1,
-    PRESIDENTIAL_PARDON = 2,
-    INVALID_FORM = -1
-};
-
 class Intern {
 public:
   Intern();

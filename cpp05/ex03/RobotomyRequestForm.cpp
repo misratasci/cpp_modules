@@ -34,7 +34,6 @@ void RobotomyRequestForm::execute(Bureaucrat const &executor) const {
 
   std::cout << "Drilling noises brrzzzz" << std::endl;
 
-  // Seed the random number generator
   static bool seeded = false;
   if (!seeded) {
     srand(time(NULL));
