@@ -12,7 +12,7 @@ RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &src)
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string target)
     : AForm("RobotomyRequestForm", 72, 45), target(target) {
-  std::cout << "RobotomyRequestForm parametric constructor called" << std::endl;
+  std::cout << "RobotomyRequestForm constructor called" << std::endl;
 }
 
 RobotomyRequestForm::~RobotomyRequestForm() {

@@ -1,29 +1,34 @@
 #include "Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat() : name("default"), grade(150) {
-  std::cout << "Bureaucrat default constructor called" << std::endl;
+  std::cout << "Default constructor for Bureaucrat " << this->getName()
+            << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &src)
     : name(src.name), grade(src.grade) {
-  std::cout << "Bureaucrat copy constructor called" << std::endl;
+  std::cout << "Copy constructor for Bureaucrat " << this->getName()
+            << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const std::string name, int grade) : name(name) {
-  std::cout << "Bureaucrat parametric constructor called" << std::endl;
-  if (grade < 1)
-    throw GradeTooHighException();
+Bureaucrat::Bureaucrat(const std::string name, int grade)
+    : name(name), grade(grade) {
   if (grade > 150)
     throw GradeTooLowException();
-  this->grade = grade;
+  else if (grade < 1)
+    throw GradeTooHighException();
+  else
+    std::cout << "Name & grade constructor for Bureaucrat " << this->getName()
+              << std::endl;
 }
 
 Bureaucrat::~Bureaucrat() {
-  std::cout << "Bureaucrat destructor called" << std::endl;
+  std::cout << "Destructor for Bureaucrat " << this->getName() << std::endl;
 }
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &src) {
-  std::cout << "Bureaucrat assignment operator called" << std::endl;
+  std::cout << "Assignment operator for Bureaucrat " << this->getName()
+            << " called" << std::endl;
   if (this != &src)
     this->grade = src.grade;
   return *this;

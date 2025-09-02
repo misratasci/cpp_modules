@@ -17,6 +17,10 @@ Form::Form(const std::string name, const int sign_grade, const int exec_grade)
       exec_grade(exec_grade) {
   std::cout << "Name & grades constructor for Form " << this->getName()
             << std::endl;
+  if (sign_grade < 1 || exec_grade < 1)
+    throw GradeTooHighException();
+  if (sign_grade > 150 || exec_grade > 150)
+    throw GradeTooLowException();
 }
 
 Form::~Form() {

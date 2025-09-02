@@ -13,7 +13,7 @@ PresidentialPardonForm::PresidentialPardonForm(
 
 PresidentialPardonForm::PresidentialPardonForm(const std::string target)
     : AForm("PresidentialPardonForm", 25, 5), target(target) {
-  std::cout << "PresidentialPardonForm parametric constructor called"
+  std::cout << "PresidentialPardonForm constructor called"
             << std::endl;
 }
 

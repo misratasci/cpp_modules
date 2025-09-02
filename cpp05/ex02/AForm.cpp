@@ -14,7 +14,7 @@ AForm::AForm(const AForm &src)
 AForm::AForm(const std::string name, const int sign_grade, const int exec_grade)
     : name(name), is_signed(false), sign_grade(sign_grade),
       exec_grade(exec_grade) {
-  std::cout << "AForm parametric constructor called" << std::endl;
+  std::cout << "AForm name & grade constructor called" << std::endl;
   if (sign_grade < 1 || exec_grade < 1)
     throw GradeTooHighException();
   if (sign_grade > 150 || exec_grade > 150)
