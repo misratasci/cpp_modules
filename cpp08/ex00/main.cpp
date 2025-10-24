@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <deque>
 #include "easyfind.hpp"
 
 int main()
