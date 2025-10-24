@@ -47,5 +47,22 @@ int main() {
 		++lit;
 	}
 
+	std::cout << std::endl;
+
+	MutantStack<double> muts;
+	muts.push(1.5);
+	muts.push(2.5);
+	muts.push(3.5);
+	muts.push(4.5);
+	MutantStack<double>::reverse_iterator mit = muts.rbegin();
+	MutantStack<double>::reverse_iterator mite = muts.rend();
+	++mit;
+	--mit;
+	while (mit != mite)
+	{
+		std::cout << *mit << std::endl;
+		++mit;
+	}
+
 	return 0;
 }
