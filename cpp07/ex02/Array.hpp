@@ -17,7 +17,7 @@ public:
         for (unsigned int i = 0; i < len; ++i)
             data[i] = src.data[i];
     }
-    ~Array() { delete[] data; }
+    ~Array() {delete[] data;}
     Array &operator=(const Array &src) {
         if (this != &src) {
             delete[] data;
@@ -38,7 +38,9 @@ public:
             throw std::out_of_range("Index out of range");
         return data[i];
     }
-    unsigned int size() const { return len; }
+    unsigned int size() const {
+        return len;
+    }
 };
 
 #endif
